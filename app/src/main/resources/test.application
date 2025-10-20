@@ -1,0 +1,43 @@
+server.port=7203
+spring.datasource.url= jdbc:sqlserver://192.168.10.187;instance=;DatabaseName=leave_management_db;trustServerCertificate= true;
+spring.datasource.driver-class-name=com.microsoft.sqlserver.jdbc.SQLServerDriver
+spring.datasource.username=sa
+spring.datasource.password=%$Afro123
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+
+spring.mail.host=smtp.office365.com
+spring.mail.port=587
+spring.mail.username=noreply@afrosoft.co.zw
+spring.mail.password=%$Afro123
+spring.mail.test-connection=true
+spring.mail.properties.mail.smtp.starttls.enable=true
+spring.mail.transport.protocol=smtp
+spring.mail.properties.mail.smtp.auth=true
+
+spring.application.name: Notifications-Service-dev
+eureka.instance.prefer-ip-address=true
+eureka.client.register-with-eureka=true
+eureka.client.fetch-registry=true
+eureka.client.service-url.defaultZone=http://192.168.10.99:7201/eureka/
+
+gateway.url=http://196.43.100.53:8901/teleoss/sendsms.jsp
+sms.username=Te
+sms.password=TestAcc
+sms.senderId=Test Account
+sms.accountusagetypeid=1
+sms.unicode=0
+sms.isallowduplicatemobile=yes
+
+server:
+port: 8081
+servlet:
+context-path: /resource-server
+
+spring:
+security:
+oauth2:
+resourceserver:
+jwt:
+issuer-uri:
+jwk-set-uri
