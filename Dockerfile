@@ -13,28 +13,41 @@
 #EXPOSE 8080
 #ENTRYPOINT ["java", "-jar", "app.jar"]
 # Build stage
+# -----------------------------
+# Build stage
+# -----------------------------
 FROM maven:3.9.6-eclipse-temurin-17 AS build
 
 # Set working directory inside container
-WORKDIR /app
+WORKDIR /workspace
 
-# Copy the parent POM first (if any) and module POM
+# Copy the parent POM first (to leverage Docker cache)
 COPY pom.xml ./
-COPY app/pom.xml ./app/
-COPY app/src ./app/src
 
-# Build the project
-RUN mvn -f ./app/pom.xml clean package -DskipTests
+# Copy all modules (required for multi-module Maven build)
+COPY app ./app
+COPY api ./api
+COPY domain ./domain
+COPY service ./service
+COPY repository ./repository
 
+# Build the entire project without running tests
+RUN mvn clean package -DskipTests -f pom.xml
+
+# -----------------------------
 # Runtime stage
+# -----------------------------
 FROM eclipse-temurin:17-jdk-alpine
+
+# Set working directory for runtime
 WORKDIR /app
 
-# Copy the JAR from build stage
-COPY --from=build /app/app/target/*.jar app.jar
+# Copy the built app JAR from build stage
+COPY --from=build /workspace/app/target/*.jar app.jar
 
-# Expose port
+# Expose Spring Boot default port
 EXPOSE 8080
 
-# Start the app
+# Start the Spring Boot app
 ENTRYPOINT ["java", "-jar", "app.jar"]
+
