@@ -16,7 +16,7 @@ spring:
     port: 587
     username: tiriworktracknoreply@gmail.com
     password: "icah dasi qtfa fszw"
-    test-connection: true
+    test-connection: false
     properties:
       mail:
         smtp:
