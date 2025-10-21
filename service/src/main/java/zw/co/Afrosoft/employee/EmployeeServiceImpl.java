@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import zw.co.Afrosoft.DepartmentRepository;
-import zw.co.Afrosoft.Email.MailService;
+//import zw.co.Afrosoft.Email.MailService;
 import zw.co.Afrosoft.EmployeeRepository;
 import zw.co.Afrosoft.Exceptions.FileAlreadyExistsException;
 import zw.co.Afrosoft.Exceptions.RecordNotFoundException;
@@ -25,7 +25,7 @@ import java.util.List;
 public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeRepository employeeRepository;
     private final DepartmentRepository departmentRepository;
-    private final MailService emailService;
+//    private final MailService emailService;
 
     @Override
     @Transactional
@@ -50,7 +50,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         Employee savedEmployee = employeeRepository.save(employee);
 
         // Send email notification
-        emailService.sendEmail(employee.getEmail(), "Welcome to the Company", "Dear " + employee.getEmployeeName() + ", your account has been created successfully.");
+//        emailService.sendEmail(employee.getEmail(), "Welcome to the Company", "Dear " + employee.getEmployeeName() + ", your account has been created successfully.");
 
         return savedEmployee;
     }
