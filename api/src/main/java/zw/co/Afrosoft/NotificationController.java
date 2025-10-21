@@ -5,7 +5,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.*;
 import zw.co.Afrosoft.Email.EmailService;
-import zw.co.Afrosoft.Firebase.FirebaseService;
 //import zw.co.Afrosoft.sms.SmsService;
 
 @RestController
@@ -13,7 +12,7 @@ import zw.co.Afrosoft.Firebase.FirebaseService;
 @RequiredArgsConstructor
 public class NotificationController {
     private final EmailService emailService;
-    private final FirebaseService firebaseService;
+//    private final FirebaseService firebaseService;
 //    private final SmsService smsService;
     private final NotificationsRepository notificationsRepository;
 
@@ -23,9 +22,9 @@ public class NotificationController {
         if (notificationRequest.isEmail()) {
             emailService.sendEmail(notification);
         }
-        if (notificationRequest.isPush()) {
-            firebaseService.sendFirebase(notificationRequest);
-        }
+//        if (notificationRequest.isPush()) {
+//            firebaseService.sendFirebase(notificationRequest);
+//        }
 //        if (notificationRequest.isSMS()) {
 //            smsService.sendSMS(notificationRequest);
 //        }
