@@ -1,7 +1,6 @@
+server:
+  port: ${SERVER_PORT:8080}
 spring:
-  profiles:
-    active: ${SPRING_PROFILES_ACTIVE:default}
-
   datasource:
     url: ${SPRING_DATASOURCE_URL}
     username: ${SPRING_DATASOURCE_USERNAME}
@@ -16,5 +15,32 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
 
-server:
-  port: ${SERVER_PORT:8080}
+
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: tiriworktracknoreply@gmail.com
+    password: "icah dasi qtfa fszw"
+    test-connection: true
+    properties:
+      mail:
+        smtp:
+          ssl:
+            trust: smtp.gmail.com
+          starttls:
+            enable: true
+            auth: true
+    transport:
+      protocol: smtp
+
+  gateway:
+    url: http://196.43.100.53:8901/teleoss/sendsms.jsp
+
+  sms:
+    username: Te
+    password: TestAcc
+    senderId: "Test Account"
+    accountusagetypeid: 1
+    unicode: 0
+    isallowduplicatemobile: yes
