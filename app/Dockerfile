@@ -1,5 +1,9 @@
 # Use Java 17 JDK base image
-FROM eclipse-temurin:17-jdk-jammy
+FROM maven:3-eclipse-temurin-17 AS build
+COPY . .
+RUN mvn clean package -DskipTests
+
+FROM eclipse-temurin:17-alpine
 
 # Set working directory inside container
 WORKDIR /app
