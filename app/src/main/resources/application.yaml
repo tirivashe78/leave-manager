@@ -17,22 +17,22 @@ spring:
 
 
 
-#  mail:
-#    host: smtp.gmail.com
-#    port: 587
-#    username: tiriworktracknoreply@gmail.com
-#    password: "icah dasi qtfa fszw"
-#    test-connection: true
-#    properties:
-#      mail:
-#        smtp:
-#          ssl:
-#            trust: smtp.gmail.com
-#          starttls:
-#            enable: true
-#            auth: true
-#    transport:
-#      protocol: smtp
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: biovotingsystemnoreply@gmail.com
+    password: "yrka xpwv ynfr kjse"
+    test-connection: false
+    properties:
+      mail:
+        smtp:
+          ssl:
+            trust: smtp.gmail.com
+          starttls:
+            enable: true
+            auth: true
+    transport:
+      protocol: smtp
 
   gateway:
     url: http://196.43.100.53:8901/teleoss/sendsms.jsp
