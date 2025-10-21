@@ -19,8 +19,8 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class AuthServiceImpl implements AuthService {
     private final UserRepository userRepository;
-    @Autowired
-    private JavaMailSender mailSender;
+//    @Autowired
+//    private JavaMailSender mailSender;
     @PostConstruct
     public void createAdmin() {
         Optional<User> optionaluser = userRepository.findByUserRole(UserRole.ADMIN);
@@ -64,6 +64,6 @@ public class AuthServiceImpl implements AuthService {
         message.setTo(to);
         message.setSubject(subject);
         message.setText(text);
-        mailSender.send(message);
+//        mailSender.send(message);
     }
 }
