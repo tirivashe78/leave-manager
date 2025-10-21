@@ -29,7 +29,7 @@ COPY app ./app
 COPY api ./api
 COPY domain ./domain
 COPY service ./service
-COPY repository ./repository
+COPY persistence ./persistence
 
 # Build the entire project without running tests
 RUN mvn clean package -DskipTests -f pom.xml
